@@ -1,0 +1,28 @@
+.transpositionContainer {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background: #f2f2ff;
+    padding: 5rem 3rem;
+    flex-direction: column;
+    box-sizing: border-box;
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    background-color: #1e1e1e;
+    color: white;
+
+    .transpositionHeader {
+      display: flex;
+      padding-bottom: 10px;
+      text-align: center;
+      justify-content: center;
+
+      h1 {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+
+    }
+    
+}

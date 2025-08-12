@@ -1,0 +1,49 @@
+.customInputContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  
+  .customInputLabel {
+    display: block;
+    margin-bottom: 0.10rem;
+    font-weight: 400;
+    color: white;
+  }
+
+  .customInput {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+      border-color: #4b00ff;
+      box-shadow: 0 0 0 0.2rem  rgba(75, 0, 255, 0.1);
+    }
+
+    &.invalidInput {
+      border-color: #f44336 !important;
+
+      &:focus {
+        border-color: #f44336 !important;
+        box-shadow: 0 0 0 0.2rem rgba(244, 67, 54, 0.2);
+      }
+    }
+
+    &:disabled {
+      background-color: #d8d8d8;
+      border-color: #d4d4d4 !important;
+      cursor: not-allowed;
+      color: black;
+    }
+  }
+
+  .errorMesasge {
+    font-size: 1rem;
+    color: #f44336;
+    margin-top: 5px;
+  }
+}

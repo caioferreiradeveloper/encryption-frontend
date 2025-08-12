@@ -1,0 +1,59 @@
+@use './colors.scss' as *;
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+.form-default {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding-top: 0.5rem;
+
+  .span-1 {
+    grid-column: span 1;
+  }
+
+  .span-2 {
+    grid-column: span 2;
+  }
+
+  .span-3 {
+    grid-column: span 3;
+  }
+
+  .span-4 {
+    grid-column: span 4;
+  }
+
+}
+
+
+
+.stepper-button-options {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+
+  @media (max-width: 960px) {
+    .stepper-button-options {
+      flex-direction: column;
+    }
+  }

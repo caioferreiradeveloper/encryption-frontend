@@ -1,0 +1,33 @@
+
+.btnRadius {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+        background: #6a2aca;
+    }
+}
+
+.btnRadiusWriteColor {
+    background: white;
+    color: black;
+
+    &:hover {
+        background: rgb(236, 235, 235);
+        color: #222;
+    }
+}
+
+.btnRadiusTertiaryColor {
+    background: var(--tertiary-color);
+    color: white;
+
+    &:hover {
+        background: #3636ca;
+        color: white;
+    }
+}

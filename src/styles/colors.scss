@@ -1,0 +1,16 @@
+$primary-color: #462A70;
+$secondary-color: #5C5BE0;
+$tertiary-color: #5C5BE0;
+$text: #fff;
+$bg: #fff;
+$card-bg: #f9f9f9;
+
+
+:root {
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --tertiary-color: #{$tertiary-color};
+  --text-color: #{$text};
+  --bg-color: #{$bg};
+  --card-bg: #{$card-bg};
+}

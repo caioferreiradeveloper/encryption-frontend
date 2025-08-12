@@ -1,0 +1,15 @@
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ccd0d6;
+  color: black;
+
+  .mainText {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    padding-right: 0.75rem;
+  }
+
+}

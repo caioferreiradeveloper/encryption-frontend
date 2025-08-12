@@ -1,0 +1,38 @@
+.customInputTextarea {
+  border: 1px solid var(--primary-color) !important;
+  border-radius: 0.5rem;
+  padding: 10px;
+  transition: border-color 0.3s ease;
+  font-size: 1rem;
+  width: 100%;
+
+  .customInputLabel {
+    display: block;
+    margin-bottom: 0.10rem;
+    font-weight: 400;
+    color: #3f3f46;
+  }
+
+  &.invalidInput {
+      border-color: #f44336 !important;
+
+      &:focus {
+        border-color: #f44336 !important;
+        box-shadow: 0 0 0 0.2rem rgba(244, 67, 54, 0.2);
+      }
+    }
+
+   &:focus {
+      outline: none;
+      border-color: #4b00ff;
+      box-shadow: 0 0 0 0.2rem rgba(75, 0, 255, 0.1);
+    }
+
+
+  
+}
+
+.errorMesasge {
+  font-size: 1rem;
+  color: #f44336;
+}
