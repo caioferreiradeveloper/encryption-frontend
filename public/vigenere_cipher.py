@@ -10,8 +10,8 @@ class VigenereCipher:
     def __init__(self, secret_key: str):
 
         # Declaring attributes
-        self.__alpha: List[str] = list(string.ascii_lowercase) + list(string.digits) + list(string.punctuation) + list(" ")
-        self.__secret_key: str = secret_key.lower()
+        self.__alpha: List[str] = list(string.ascii_uppercase) + list(" ")
+        self.__secret_key: str = secret_key.upper()
     
     # Encrypt Method
     def encrypt(self, message: str):
@@ -19,8 +19,8 @@ class VigenereCipher:
         # Declaring a variable to store the count number
         count = 0
 
-        # Message lower case tratament
-        message = message.lower()
+        # Message upper case tratament
+        message = message.upper()
 
         # Declaring a variable to store the encryption result
         message_encrypt = ""
@@ -55,8 +55,8 @@ class VigenereCipher:
         # Declaring a variable to store the count number
         count = 0
 
-        # Message lower case tratament
-        encrypt_message = encrypt_message.lower()
+        # Message upper case tratament
+        encrypt_message = encrypt_message.upper()
 
         # Declaring a variable to store the encryption result
         message_decrypt = ""

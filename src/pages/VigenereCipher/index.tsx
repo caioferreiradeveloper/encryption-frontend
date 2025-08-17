@@ -88,26 +88,12 @@ export default function VigenereCipher() {
         })();
     }, []);
 
-    useEffect(() => {
-
-        // Check if keyValue is not empty (ignoring spaces)
-        if (keyValue.trim() !== "") {
-
-            // If it has content, make the element visible
-            setVisible(true);
-
-        } else {
-            
-            // If it's empty, hide the element
-            setVisible(false);
-        }
-    }, [keyValue]);
-
 
     // Function to generate a random key of a given length (default: 16 characters)
     const generateRandomKey = (length: number = 16) => {
+
         // Set of characters to be used in the key
-        const characters = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]|:;<>,.?/~`-=";
+        const characters = "abcdefghijklmnopqrstuvwxyz";
         
         // Variable to store the generated key
         let key = "";
@@ -123,8 +109,23 @@ export default function VigenereCipher() {
         }
         
         // Set the generated key (converted to lowercase) in the form's "key" field
-        setValue("key", key.toLowerCase());
+        setValue("key", key.toUpperCase());
     }
+
+    useEffect(() => {
+
+        // Check if keyValue is not empty (ignoring spaces)
+        if (keyValue.trim() !== "") {
+
+            // If it has content, make the element visible
+            setVisible(true);
+
+        } else {
+            
+            // If it's empty, hide the element
+            setVisible(false);
+        }
+    }, [keyValue]);
 
 
     const onSubmit = async (mode: boolean) => {
@@ -153,6 +154,7 @@ export default function VigenereCipher() {
         pyodide.globals.set("message", message);
 
         if (mode) {
+
             // If encrypt mode is active
             const result = pyodide.runPython(`
                 from vigenere_cipher import VigenereCipher
@@ -165,7 +167,9 @@ export default function VigenereCipher() {
 
             // Set the encrypted result into the "result" field
             setValue("result", result);
+
         } else {
+            
             // If decrypt mode is active
             const result = pyodide.runPython(`
                 from vigenere_cipher import VigenereCipher
@@ -205,8 +209,13 @@ export default function VigenereCipher() {
                         label='Chave'
                         register={{
                             ...register("key", {
-                                required: "Chave é obrigatória"
-                            })
+                            required: "Chave é obrigatória",
+                            onChange: (e) => {
+                                const onlyLetters = e.target.value.replace(/[^A-Za-z]/g, "");
+                                const upper = onlyLetters.toUpperCase();
+                                setValue("key", upper, { shouldValidate: true });
+                            },
+                            }),
                         }}
                         error={errors.key} 
                         type={'text'}
@@ -235,7 +244,12 @@ export default function VigenereCipher() {
                     name="message"
                     register={{
                         ...register("message", {
-                            required: "Mensagem é obrigatória"
+                            required: "Mensagem é obrigatória",
+                            onChange: (e) => {
+                                const onlyLetters = e.target.value.replace(/[^A-Za-z\s]/g, "");
+                                const upper = onlyLetters.toUpperCase();
+                                setValue("message", upper, { shouldValidate: true });
+                            },
                         })
                     }}
                     error={errors.message}
